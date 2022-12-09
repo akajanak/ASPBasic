@@ -1,2 +1,0 @@
-# ASPBasic
-practice
