@@ -12,11 +12,12 @@ namespace BookApp.Controllers
         {
             _bookRepository = new BookRepository();
         }
-        public List<BookModel> GetAllBooks()
+        public ViewResult GetAllBooks()
         {
-            return _bookRepository.GetAllBooks();
+            var data =  _bookRepository.GetAllBooks();
+            return View();
         }
-        public BookModel GetBook(int id)
+        public BookModel GetBook(int id)                                                 
         {
             return _bookRepository.GetBooksById(id);
         }

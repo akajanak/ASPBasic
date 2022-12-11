@@ -12,9 +12,12 @@ namespace BookApp
 {
     public class Startup
     {
-        public void ConfigureServices(IServiceCollection services)
+            public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+#if DEBUG
+            services.AddRazorPages().AddRazorRuntimeCompilation();
+#endif
         }
         public void configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -22,11 +25,14 @@ namespace BookApp
             {
                 app.UseDeveloperExceptionPage();
             }
-         app.UseRouting();
+            app.UseStaticFiles();
+            app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
             });
         }
     }
+
+    
 }
