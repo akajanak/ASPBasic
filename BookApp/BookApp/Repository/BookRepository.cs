@@ -27,11 +27,11 @@ namespace BookApp.Repository
     {
         return new List<BookModel>()
             {
-              new BookModel(){Id=1, Title= "MVC", Author="Nitish"},
-              new BookModel(){Id=2, Title= "Java", Author="Mohan"},
-              new BookModel(){Id=3, Title= "Javascript", Author="Madan"},
-              new BookModel(){Id=4, Title= "React", Author="Muna"},
-              new BookModel(){Id=5, Title= "Angular", Author="Manish"},
+              new BookModel(){Id=1, Title= "MVC", Author="Nitish", Description="This is MVC Book", Category="programming", Language="english"},
+              new BookModel(){Id=2, Title= "Java", Author="Mohan", Description="This is Java Book",  Category="programming", Language="english"},
+              new BookModel(){Id=3, Title= "Javascript", Author="Madan", Description = "This is JavaScript Book",  Category="programming", Language="english"},
+              new BookModel(){Id=4, Title= "React", Author="Muna", Description = "This is React Book",  Category="Library", Language="english"},
+              new BookModel(){Id=5, Title= "Angular", Author="Manish", Description = "This is Angular Book", Category="Framework", Language="english"},
             };
     }
 }

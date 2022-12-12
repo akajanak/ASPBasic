@@ -15,15 +15,20 @@ namespace BookApp.Controllers
         public ViewResult GetAllBooks()
         {
             var data =  _bookRepository.GetAllBooks();
-            return View();
+            return View(data);
         }
-        public BookModel GetBook(int id)                                                 
+        public ViewResult GetBook(int id)                                                 
         {
-            return _bookRepository.GetBooksById(id);
+            var data = _bookRepository.GetBooksById(id);
+            return View(data);
         }
         public List<BookModel> SearchBook(string authorName, string bookName)
         {
             return _bookRepository.SearchBook(authorName, bookName);
+        }
+        public ViewResult AddNewBook()
+        {
+            return View();
         }
     }
 }
