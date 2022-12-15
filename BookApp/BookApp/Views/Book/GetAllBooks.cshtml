@@ -14,7 +14,7 @@
             <div class="card-body">
                 <h5 class="card-title">@book.Title</h5>
                     <p class="card-text">@book.Description.</p>
-                <a href="/book/getbook/@book.Id" class="btn btn-primary">View More Detail</a>
+                <a asp-asp-controller="book" asp-action="getbook" asp-route-id="@book.Id" class="btn btn-primary">View More Detail</a>
                 <small class="text-muted">@book.Author</small>
             </div>
         </div>

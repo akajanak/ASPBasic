@@ -26,7 +26,9 @@ namespace BookApp.Controllers
         {
             return _bookRepository.SearchBook(authorName, bookName);
         }
-        public ViewResult AddNewBook()
+
+        [HttpPost]
+        public ViewResult AddNewBook(BookModel bookModel)
         {
             return View();
         }
