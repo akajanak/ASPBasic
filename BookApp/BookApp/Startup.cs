@@ -17,7 +17,7 @@ namespace BookApp
             public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<BookStoreContext>(options => options.UseSqlServer("Server=localhost;DataBase=BookStore;Integrated Security=True"));
+            services.AddDbContext<BookStoreContext>(options => options.UseSqlServer("Server=GANDALF\\SQLEXPRESS;Database=BookStore;Integrated Security=True;Trust Server Certificate=true"));
 #if DEBUG
             services.AddRazorPages().AddRazorRuntimeCompilation();
 #endif
