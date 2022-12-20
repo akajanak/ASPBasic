@@ -12,9 +12,9 @@ namespace BookApp.Controllers
         {
             _bookRepository = new BookRepository();
         }
-        public ViewResult GetAllBooks()
+        public async Task<ViewResult> GetAllBooks()
         {
-            var data =  _bookRepository.GetAllBooks();
+            var data = await _bookRepository.GetAllBooks();
             return View(data);
         }
         [Route("book-details/{id}", Name = "bookDetailsRoute")]
@@ -37,10 +37,13 @@ namespace BookApp.Controllers
         [HttpPost]
         public async Task<IActionResult> AddNewBook(BookModel bookModel, int bookId = 0)
         {
-            int id =await _bookRepository.AddNewBook(bookModel);
-            if (id > 0)
+            if (ModelState.IsValid)
             {
-                return RedirectToAction(nameof(AddNewBook), new { isSuccess = true });
+                int id = await _bookRepository.AddNewBook(bookModel);
+                if (id > 0)
+                {
+                    return RedirectToAction(nameof(AddNewBook), new { isSuccess = true, bookId= id });
+                }
             }
             return View();
         }
