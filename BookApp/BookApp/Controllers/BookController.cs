@@ -17,6 +17,7 @@ namespace BookApp.Controllers
             var data =  _bookRepository.GetAllBooks();
             return View(data);
         }
+        [Route("book-details/{id}", Name = "bookDetailsRoute")]
         public ViewResult GetBook(int id)                                                 
         {
             var data = _bookRepository.GetBooksById(id);
@@ -27,9 +28,20 @@ namespace BookApp.Controllers
             return _bookRepository.SearchBook(authorName, bookName);
         }
 
-        [HttpPost]
-        public ViewResult AddNewBook(BookModel bookModel)
+        public ViewResult AddNewBook(bool isSuccess = false, int bookId = 0)
         {
+            ViewBag.isSuccess = isSuccess;
+            ViewBag.BookId = bookId;
+            return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddNewBook(BookModel bookModel, int bookId = 0)
+        {
+            int id =await _bookRepository.AddNewBook(bookModel);
+            if (id > 0)
+            {
+                return RedirectToAction(nameof(AddNewBook), new { isSuccess = true });
+            }
             return View();
         }
     }
