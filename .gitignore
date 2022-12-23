@@ -2,11 +2,15 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
+/aspGit
+/Complete guide to ASP.NET Core MVC (.NET 6)
+/front-end/feedback/package.json
+/front-end
+/MODEROB
+/ndoe
+/NonGit/.vs
+*.pdf
+/aspFiles.lnk
+/desktop.ini
+/NatoursApp
 /.vs
-/BookApp/.vs/BookApp
-/BookApp/BookApp/bin/Debug/net6.0
-/BookApp/BookApp/obj
-/BookApp/.vs
-/BookApp/BookApp/.vs
-/BookStore.LocalApp
-/BookApp/BookApp/wwwroot/lib
